@@ -1,17 +1,10 @@
-# Welcome to MkDocs
+# Welcome to the River Basin Model (RBM) website!
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+On this website you will find documentation both about the model and how to run the model.
 
-## Commands
+# Documentation:
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+### 1.  [About](Overview/ModelOverview.md)
+### 2.  [Documentation](Documentation/UserGuide.md)
+### 3.  [Development](Development/ModelDevelopment.md)
+### 4.  [Downloads](Datasets/Datasets.md)
