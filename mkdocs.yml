@@ -8,7 +8,7 @@ docs_dir: docs
 site_dir: site
 use_directory_urls: true
 
-pages:
+nav:
 # Main pages
 - Home: 'index.md'
 - About:
