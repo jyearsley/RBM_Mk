@@ -8,7 +8,7 @@
         <meta name="author" content="J Yearsley">
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Tutorial - RBM_Mk</title>
+        <title>Code - RBM_Mk</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -53,20 +53,20 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="./" class="dropdown-item active">Tutorial</a>
+    <a href="../../Documentation/tutorial/" class="dropdown-item">Tutorial</a>
 </li>
                                     
 <li>
-    <a href="../run_RBM.md" class="dropdown-item">How to run RBM (Salmon River example)</a>
+    <a href="../../Documentation/run_RBM.md" class="dropdown-item">How to run RBM (Salmon River example)</a>
 </li>
                                     
 <li>
-    <a href="../References/" class="dropdown-item">References</a>
+    <a href="../../Documentation/References/" class="dropdown-item">References</a>
 </li>
                                 </ul>
                             </li>
@@ -79,12 +79,12 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Downloads <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../../SourceCode/Code/" class="dropdown-item">Code</a>
+    <a href="./" class="dropdown-item active">Code</a>
 </li>
                                 </ul>
                             </li>
@@ -97,17 +97,17 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../../Overview/contact/" class="nav-link">
+                                <a rel="prev" href="../../Documentation/References/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../References/" class="nav-link">
+                                <a rel="next" class="nav-link disabled">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://github.com/jyearsley/RBM_Mk/tree/master/edit/master/docs/Documentation/tutorial.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                                <a href="https://github.com/jyearsley/RBM_Mk/tree/master/edit/master/docs/SourceCode/Code.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
                             </li>
                     </ul>
                 </div>
@@ -127,20 +127,8 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#tutorial-for-running-the-vic-rbm-hydrologic-and-stream-temperature-model" class="nav-link">Tutorial for Running the VIC-RBM hydrologic and stream temperature model</a>
+            <li class="nav-item" data-level="1"><a href="#code" class="nav-link">Code</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#1-overview" class="nav-link">1. Overview</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#2-model-input" class="nav-link">2. Model input</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#3-model-output" class="nav-link">3. Model output</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
               </ul>
             </li>
         </ul>
@@ -148,72 +136,9 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="tutorial-for-running-the-vic-rbm-hydrologic-and-stream-temperature-model">Tutorial for Running the VIC-RBM hydrologic and stream temperature model<a class="headerlink" href="#tutorial-for-running-the-vic-rbm-hydrologic-and-stream-temperature-model" title="Permanent link">&para;</a></h1>
-<p>These are the instructions for running the integrated modeling system comprised of the large-scale hydrologic model <strong>VIC</strong> (<a href="../References/">Liang et al, 1994</a>), a routing model based on the work of <a href="../References/">Lohmann et al (1996)</a> and the semi-Lagrangian water temperature model, RBM (<a href="../References/">Yearsley, 2009, 2012</a>). Model development and implementation for the large-scale hydrologic model <strong>VIC</strong> are described in detail on the website of the University of Washington Department of Civil and Environmental Engineering's <a href="https://uw-hydro.github.io/code/">UW Hydro|Computational Hydrology group</a></p>
-<h2 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h2>
-<p>The <strong>VIC-RBM</strong> model is a coupled hydrologic and stream temperature model that links three sub-models together: the <strong>VIC</strong> model; the routing model; and the <strong>RBM</strong> model. The <strong>VIC</strong> model is a hydrologic model that uses meteorological forcing data as input and simulates hydrologic variables such as runoff, evapotranspiration and soil moisture at each grid cell. The routing model takes the output from the <strong>VIC</strong> model along with flow network information as input, and output streamflow at specified locations along stream network. The <strong>RBM</strong> model takes both the streamflow results and the meteorological data as input and calculate stream temperature along stream network. Thus, the <strong>VIC-RBM</strong> model as a whole is able to simulate both streamflow and stream temperature at spatial scales determined by the basic <strong>VIC</strong> gridded network configuration. <strong>VIC</strong> gridded networks have been developed for the Continental United States (CONUS) at 1/16, 1/8, 1/4, 1/2 and 1 degree of latitude and longitude. As presently configured, the <strong>VIC-RBM</strong> model system simulates daily-averaged or subdaily stream temperatures in accordance with the timestep of input.</p>
-<h2 id="2-model-input">2. Model input<a class="headerlink" href="#2-model-input" title="Permanent link">&para;</a></h2>
-<h3 id="1input-for-the-vic-hydrologic-model">1)Input for the VIC hydrologic model<a class="headerlink" href="#1input-for-the-vic-hydrologic-model" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Meteorological forcing data at each grid cell<ul>
-<li>Minimum requirement:<ul>
-<li>daily precipitation</li>
-<li>daily maximum and minimum temperature</li>
-<li>wind speed</li>
-</ul>
-</li>
-<li>VIC includes a meteorological data disaggregator that calculates subdaily meteorological variables required by VIC from the minimum forcing variables. Details can be seen in the <a href="http://vic.readthedocs.io/en/vic.4.2.d/Documentation/ForcingData/">VIC website</a>. Please note: the meteorological disaggregator is deprecated in the new version VIC5.</li>
-</ul>
-</li>
-<li>Soil properties at each grid cell</li>
-<li>Vegetation information at each grid cell</li>
-</ul>
-<h3 id="2input-for-the-routing-model">2)Input for the routing model<a class="headerlink" href="#2input-for-the-routing-model" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Flow direction file – describes the topology of the river basin network.</li>
-<li>Unit hydrograph file - contains the grid cell impulse response function. <br /></li>
-<li>flow velocity, diffusivity and flow distance values - we set them to spatially constant values so don't have separate input files for these) <br /></li>
-</ul>
-<p>More details about input for Lohmann routing model can be seen <a href="http://www.hydro.washington.edu/Lettenmaier/Models/VIC/Documentation/Routing/RoutingInput.shtml">here</a>.</p>
-<h3 id="3input-for-the-rbm-stream-temperature-model">3)Input for the RBM stream temperature model<a class="headerlink" href="#3input-for-the-rbm-stream-temperature-model" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Mohseni parameters: empirical parameters in Mohseni method (<a href="../References/">Mohseni et al., 1998</a>), which is an empirical method to estimate headwater temperatures from air temperatures.</li>
-<li>Stream hydraulics, including flow depth and velocity. Estimated from stream discharge based on the method developed by <a href="../References/">Leopold and Maddock (1953)</a>.</li>
-</ul>
-<h2 id="3-model-output">3. Model output<a class="headerlink" href="#3-model-output" title="Permanent link">&para;</a></h2>
-<p>Possible model output from the VIC-RBM model includes:</p>
-<ul>
-<li><strong><em>Grid-cell-based meteorological data</em></strong> at each grid cell at daily or subdaily time step (calculated by the VIC disaggregator), including:<ul>
-<li>Atmospheric pressure and density</li>
-<li>Vapor pressure (or vapor pressure deficit or relative humidity or specific humidity); Incoming shortwave (solar) radiation</li>
-<li>Incoming longwave (or thermal) radiation</li>
-</ul>
-</li>
-<li><strong><em>Grid-cell-based hydrologic data</em></strong> at each grid cell at daily or subdaily time step (calculated by the
-VIC model), such as:<ul>
-<li>runoff</li>
-<li>Snow cover</li>
-<li>Soil moisture</li>
-<li>Evapotranspiration</li>
-<li>... ...</li>
-</ul>
-</li>
-<li><strong><em>Grid-cell-based energy data</em></strong> at each grid cell at daily or subdaily time step (calculated by the VIC model), such as:<ul>
-<li>Net downward shortwave radiation</li>
-<li>Net downward longwave radiation</li>
-<li>Net upward sensible heat</li>
-<li>... ...</li>
-</ul>
-</li>
-<li><strong><em>Routed streamflow at specified stream locations</em></strong><ul>
-<li>(can be any locations within the stream network, and the resolution is the same as grid cell, i.e., stream locations are specified by indicating the grid cell in which it falls) calculated by the routing model, daily time step.</li>
-</ul>
-</li>
-<li><strong><em>Stream temperature at specified stream locations</em></strong><ul>
-<li>calculated by the RBM model, at daily or subdaily time steps.</li>
-</ul>
-</li>
-</ul></div>
+<h1 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h1>
+<p>All development activity is coordinated via the <a href="https://github.com/UW-Hydro/RBM">UW-Hydro/RBM github page</a>, where you can also find all archived, current, beta, and development versions of the model.</p>
+<p>More details about how to use github to download or manage your code, please refer to <a href="http://vic.readthedocs.io/en/develop/Development/working-with-git/">VIC/Introduction to git &amp; github</a>.</p></div>
             </div>
         </div>
 
