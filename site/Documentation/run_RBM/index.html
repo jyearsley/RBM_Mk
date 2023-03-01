@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="J Yearsley">
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>How to run RBM (Salmon River example) - RBM_Mk</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">RBM_Mk</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../Overview/ModelOverview/" class="dropdown-item">Model Overview</a>
+</li>
+                                    
+<li>
+    <a href="../../Overview/References/" class="dropdown-item">References</a>
+</li>
+                                    
+<li>
+    <a href="../../Overview/contact/" class="dropdown-item">Contacts</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../tutorial/" class="dropdown-item">Tutorial</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">How to run RBM (Salmon River example)</a>
+</li>
+                                    
+<li>
+    <a href="../References/" class="dropdown-item">References</a>
+</li>
+                                    
+<li>
+    <a href="../ModelDevelopment/" class="dropdown-item">Development</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Development <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../Development/ModelDevelopment/" class="dropdown-item">Development</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Downloads <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../SourceCode/Code/" class="dropdown-item">Code</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../tutorial/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../References/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/jyearsley/RBM_Mk/tree/master/edit/master/docs/Documentation/run_RBM.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#steps-to-run-rbm-salmon-river-example" class="nav-link">Steps to run RBM (Salmon River example)</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#1-download-source-code-example-datasets" class="nav-link">1. Download Source Code &amp; Example Datasets</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#2-create-the-rbm-executable" class="nav-link">2. Create the RBM Executable</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#3-run-the-model" class="nav-link">3. Run the Model</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#appendix-a-rbm-io-instruction" class="nav-link">APPENDIX A: RBM I/O instruction</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="steps-to-run-rbm-salmon-river-example">Steps to run RBM (Salmon River example)<a class="headerlink" href="#steps-to-run-rbm-salmon-river-example" title="Permanent link">&para;</a></h1>
+<p>The following describes the steps for simulating water temperature with the grid-based semi-Lagrangian model, RBM, assuming one has downloaded <a href="https://github.com/UW-Hydro/VIC/releases/tag/VIC.4.2.d"><strong>VIC</strong> 4.2.d</a> and prepared all the necessary input files. <br /></p>
+<h2 id="1-download-source-code-example-datasets">1. Download Source Code &amp; Example Datasets<a class="headerlink" href="#1-download-source-code-example-datasets" title="Permanent link">&para;</a></h2>
+<p>Download the source code for VIC_RBM2.2, please refer to  <a href="../../SourceCode/Code/">Downloads/Code</a> <br /></p>
+<p>Download the example data sets, please refer to <a href="../Datasets/Datasets.md">Downloads/Datasets/Sample Dataset</a> <br /></p>
+<p>After unzipping the example dataset <strong>Salmon_River_data</strong>, you can find the file：
+<center><strong>DESCRIPTION</strong> - a text file describing the contents of each sub-directory.</center></p>
+<p>The sub-directories within this directory are:</p>
+<table>
+<thead>
+<tr>
+<th>Sub-directories</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>RBM/Perl_Scripts</em></td>
+<td>pre- and post-processing scripts written in Perl</td>
+</tr>
+<tr>
+<td><em>RBM/src</em></td>
+<td>the Fortran 90 source and <strong>Makefile</strong> that builds the executable. <strong>RBM</strong> and places it in the directory, <strong>../Test_Case</strong>. Users may wish to change this by editing the makefile.</td>
+</tr>
+<tr>
+<td><em>RBM/rout_DA</em></td>
+<td>the source code and <strong>Makefile</strong> for the modified routing model, rout_RBM.</td>
+</tr>
+<tr>
+<td><em>Salmon_River_data/Test_case</em></td>
+<td>the input files and executable for running the example problem, using input data for the Salmon River basin at a gridded resolution of 1/2° lat/long.</td>
+</tr>
+<tr>
+<td><em>Salmon_River_data/UH_output</em></td>
+<td>the sample output from executing the routing model, <strong>rout</strong>, and the input data for the sample problem.</td>
+</tr>
+<tr>
+<td><em>Salmon_River_data/VIC_forcing</em></td>
+<td>the daily precipitation (mm), max/min air temperatures (°C), and wind speed (m/sec) that provides forcings for each <strong>VIC</strong> grid cell.</td>
+</tr>
+<tr>
+<td><em>Salmon_River_data/run_VIC</em></td>
+<td>the snowbands, soil, veg-param files, the world_veg_lib files and example global parameter files</td>
+</tr>
+<tr>
+<td><em>Salmon_River_data/VIC_output</em></td>
+<td>the meteorologic output files, full_data_lat_long, and the hydrologic output - files, flux_lat_long, from the VIC simulations.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-create-the-rbm-executable">2. Create the RBM Executable<a class="headerlink" href="#2-create-the-rbm-executable" title="Permanent link">&para;</a></h2>
+<p>Navigate to the folder, <strong>RBM/src</strong>, and type:
+<center><strong>make</strong></center></p>
+<p>This will create the executable, <strong>rbm10_VIC</strong>.</p>
+<h2 id="3-run-the-model">3. Run the Model<a class="headerlink" href="#3-run-the-model" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-build-the-forcing-function-files-flow-and-meteorology">Step 1 Build the forcing function files (flow and meteorology)<a class="headerlink" href="#step-1-build-the-forcing-function-files-flow-and-meteorology" title="Permanent link">&para;</a></h3>
+<p>In the example, we run hydrological model <strong>VIC4.2.d</strong> to generate flow and energy fluxes, which are input data for RBM. The example global parameter files can be found in the directory <strong>run_VIC</strong>. To create the necessary files (executable file to run VIC), you need to download <a href="https://github.com/UW-Hydro/VIC/releases/tag/VIC.4.2.d">VIC4.2.d</a>. The instructions to generate the executable file <strong>vicNl</strong> and run VIC can be found <a href="http://vic.readthedocs.io/en/vic.4.2.d/">here</a>. The example global files to generate baseflow, surface runoff and heat fluxes are also included in the folder <strong>run_VIC</strong> and you need to specify the output directory in those two global parameter files before you use them. The two global files can be run as follows:
+<center><strong>full/path/to/vicNl –g global_param_Salmon_0.5_flux</strong></center>
+which generates base flow and runoff</p>
+<p>and
+<center><strong>full/path/to/vicNl –g global_param_Salmon_0.5_full_data</strong> </center>
+which generates heats budget</p>
+<p>Note:</p>
+<ul>
+<li>
+<p>Again! The output directories need to be specified in each global parameter files, <strong>global_param_Salmon_0.5_flux</strong> and <strong>global_param_Salmon_0.5_full_data</strong> in this case. <br /></p>
+</li>
+<li>
+<p>How to use command line to run a model?</p>
+<ul>
+<li>The command line above is an abbreviate for <strong><em>full/path/to/executable/file -g full/path/to/global/parameter/file</em></strong>. If the global parameter files are located in the current directory, you can use the command line above. If not, you need to add the full path before each file.</li>
+<li>This rule is also applied in the following steps. If the script/executable/control/parameter files are not in the current directory, you need to add the full paths to them. </li>
+</ul>
+</li>
+</ul>
+<h3 id="step-2-generate-topology-file">Step 2 Generate topology file<a class="headerlink" href="#step-2-generate-topology-file" title="Permanent link">&para;</a></h3>
+<p>In the folder, <strong><em>../Test_Case</em></strong>, run the perl script, <strong>build_network_beta.pl*<em> (copied from </em></strong>../Perl_Scripts<strong><em>) using the direction file. Example direction file </em>*Salmon_flowd_0.5.dir</strong> can be found in <strong><em>../Test_Case</em></strong>. In the flow direction file, all the grid cells surrounding the basin of interest must contain a negative one (-1). Also, we cannot simulate a river system containing braided networks. The following is the command for generating the topology file for the Salman example:
+<center><strong>perl build_network_beta.pl Salmon_flowd_0.5.dir Salmon_0.5.Topology</strong></center></p>
+<p>This script requires two input arguments in the command line: the path of the direction file <strong>Salmon_flowd_0.5.dir</strong> and the path of the output file <strong>Salmon_0.5.Topology</strong>.</p>
+<h3 id="step-3-prepare-control-file-for-generating-network-file">Step 3 Prepare control file for generating network file<a class="headerlink" href="#step-3-prepare-control-file-for-generating-network-file" title="Permanent link">&para;</a></h3>
+<p>The user needs to prepare a control file in order to generate network file. Network file is an important input to run RBM. This control file (see <a href="../../figures/tutorial_f2.png">Figure 2</a> for an example) contains all information that we need to generate network file. Details are described below:</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Starting Date:</td>
+<td>8 digit number, format: YYYYMMDD</td>
+</tr>
+<tr>
+<td>Ending Data:</td>
+<td>8 digit number, format: YYYYMMDD</td>
+</tr>
+<tr>
+<td>Time Steps per Day:</td>
+<td>This version of model simulates only daily averages, so this is always "1".</td>
+</tr>
+<tr>
+<td>Input directory:</td>
+<td>The directory containing input forcing data</td>
+</tr>
+<tr>
+<td>Output directory:</td>
+<td>Full path to the output directory</td>
+</tr>
+<tr>
+<td>Topology File:</td>
+<td>Specify the path/filename of topology file</td>
+</tr>
+<tr>
+<td>Network File:</td>
+<td>The Network File must have the suffix, _Network.</td>
+</tr>
+<tr>
+<td>Flow File:</td>
+<td>This is the name of the file that will be created by the routing program</td>
+</tr>
+<tr>
+<td>Heat File:</td>
+<td>This is the name of the file that will be created by the routing program</td>
+</tr>
+<tr>
+<td>Mohseni Parameters:</td>
+<td>When the characters, " grid" (note the space) are missing, constant values for the Mohseni parameters are obtained from a file with the same format as the example file, <strong>Salmon_Parameters</strong>.</td>
+</tr>
+<tr>
+<td>Heat Dump:</td>
+<td>FALSE if there is no advective heat source (Power Plants, for example)</td>
+</tr>
+<tr>
+<td>Ndelta:</td>
+<td>Usually "2", but can be larger, particularly in the case of slower streams</td>
+</tr>
+</tbody>
+</table>
+<p>The control file must have the suffix, <strong>.Control</strong>, and the colon (:) after the descriptive characters in each line is required. <br />
+An example control file is also included in the folder <strong>Test_case</strong>.</p>
+<p>Note: The input/output directories need to be changed by user accordingly in the example control file.</p>
+<h3 id="step-4-generate-network-file">Step 4 Generate network file<a class="headerlink" href="#step-4-generate-network-file" title="Permanent link">&para;</a></h3>
+<p>Run the Perl script <strong>build_input.pl</strong>, using the control file <strong>Salmon_0.5.Control</strong> generated in the previous step as input, to create the network file required by RBM (<strong>Salmon_0.5_Network</strong> in this example) and the routing location file required for the routing scheme (<strong>Rout.Cells.init</strong> and <strong>Rout.Cells</strong>). See Appendix A for a description of elements in the network file. Here again, the project name (<strong>Salmon_0.5</strong>) is required on the command line. The suffix, <strong>.Control</strong>, is appended by the Perl script:</p>
+<p><center><strong>perl build_input.pl Salmon_0.5</strong></center></p>
+<h3 id="step-5-prepare-routing-input-files">Step 5 Prepare routing input files<a class="headerlink" href="#step-5-prepare-routing-input-files" title="Permanent link">&para;</a></h3>
+<p>Build the forcing function files for flow and heat budget using <strong>rout</strong>, the executable file for routing model.</p>
+<p>Navigate to the folder, <strong>rout_DA</strong>, and run:
+<center><strong>make</strong></center></p>
+<p>This will create the executable,
+<center><strong>rout</strong></center></p>
+<p>User needs to prepare a control file <strong>salmon.inp_DA</strong> (see <a href="../../figures/tutorial_f3.png">Figure 3</a> for an example) to run the modified Lohmann routing model. The <strong>Name of station file</strong> specified in this control file should be set to the file <strong>Rout.Cells.init</strong> if this is the first time running the routing model, and to the file <strong>Rout.Cells</strong> if the routing model has already been run before using the same routing parameters. The input file (in this example, <strong>salmon.inp_DA</strong>) is similar to that described on the VIC model Web site with the exception of the addition the Leopold parameters. Most parameters in this control file are the same as the original Lohmann routing model, and see <a href="http://www.hydro.washington.edu/Lettenmaier/Models/VIC/Documentation/HowtorunVIC.shtml">here</a> for detailed instructions. (See <strong>2 Creating a Hydrograph</strong>)</p>
+<h3 id="step-6-run-routing-model">Step 6 Run routing model<a class="headerlink" href="#step-6-run-routing-model" title="Permanent link">&para;</a></h3>
+<p>Run <strong>rout</strong> from the directory, Test_Case, using the file, <strong>salmon.inp_DA</strong>
+<center><strong>full/path/to/rout salmon.inp_DA</strong></center></p>
+<p>creating the direct access files for flow and heat budget
+(<strong>Salmon_DA_flow</strong> and <strong>Salmon_DA_heat</strong> in the example). See Appendix A for a description of the variables in the flow and heat budget files.</p>
+<h3 id="step-7-run-rbm">Step 7 Run RBM<a class="headerlink" href="#step-7-run-rbm" title="Permanent link">&para;</a></h3>
+<p>All necessary files have been created at this point (see Appendix A for a description of RBM output). Run the temperature model RBM with command line as follows:
+<center><strong>full/path/to/rbm10_VIC Salmon_0.5 Salmon_0.5</strong></center></p>
+<p><center><strong>[RBM_executable_file] [path/to/network_file] [path/to/output_file]</strong></center></p>
+<p>where first <strong>Salmon_0.5*<em> refers to <strong>Salmon_0.5_Network</strong> ("<strong>_Network</strong>" is appended by the model software) and second "<strong>Salmon_0.5</strong>" is the output file name (this refers to </em></strong>full_path/output_name<strong><em>. In this case, if no directory is addressed, the output file will be directly located in the current directory). "</em>*Salmon_0.5.Spat</strong>" is also created and is a file that cross-references element numbers in the output file "<strong>Salmon_0.5.Temp</strong>" to lat/long for
+post-processing.</p>
+<h2 id="appendix-a-rbm-io-instruction">APPENDIX A: RBM I/O instruction<a class="headerlink" href="#appendix-a-rbm-io-instruction" title="Permanent link">&para;</a></h2>
+<h3 id="notation">Notation:<a class="headerlink" href="#notation" title="Permanent link">&para;</a></h3>
+<p><strong>Reach</strong>: stream reaches can include several cells</p>
+<p><strong>Cell</strong>: a cell is a grid cell.</p>
+<p><strong>Cell path</strong>: each reach is first divided into parts, which we call cell path here, based on cells; for each reach, if it covers "ncell" number of cells, then it has (ncell - 1) number of cell paths</p>
+<p><strong>Node</strong>: A cell can have one or more nodes. If a cell is not a confluence, then it has one node; if a cell is a confluence cell, then this cell has more than one node, depending on how many tributaries converge at this cell. Cell paths are the channel parts that are between two adjacent nodes.</p>
+<p><strong>Segment</strong>: a cell path is further divided into multiple segments (default is that each river cell is divided into two segments). Segment points: the division points of segments. Note that the most upstream segment point would be the upstream edge of the headwater cell.</p>
+<h3 id="example">Example:<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<p>Some variables below are explained using the topology of the Salmon example:</p>
+<h4 id="network-file-input">Network file (input):<a class="headerlink" href="#network-file-input" title="Permanent link">&para;</a></h4>
+<pre><code>Line 1: not read
+
+Line 2: directory of flow file
+
+Line 3: directory of heat file
+
+Line 4: &lt;start_date&gt; &lt;end_date&gt;
+
+        date format is "YYYYMMDD". Extra arguments will not be read.
+
+Line 5: &lt;nreach&gt; &lt;flow_cells&gt; &lt;heat_cells&gt; &lt;source&gt;
+
+        &lt;nreach&gt;: number of reaches. A reach (Figure 1) is comprised of segments from the headwaters (circles) to the confluence with the next longest reach (squares).
+                  In Figure 1, a 1st order reach is the color, magenta, a 2nd order reach is the color, chartreuse, and the longest (main stem) reach is the color, blue.
+                  Note that the term, “order”, is not the same as the term used in the Strahler classification of stream order. In the example from the Salmon River, nreach = 7.
+
+        &lt;flow_cells&gt;: number of total cell paths. In the example, flow_cells = 19.
+
+        &lt;heat_cells&gt;: number of nodes. For non-confluence cells, each cell has one node. For confluence cells, one cell has more than one nodes (depending on how many tributaries it has).
+
+        &lt;source&gt;: whether there are point source inputs. TRUE for yes, FALSE for no.
+
+(Line 6: &lt;souce_file&gt;)
+        If &lt;source&gt;=TRUE, this line is the path of point source file.
+
+For each reach:
+
+    Line 1: &lt;no_cells&gt; Headwaters &lt;head_name&gt; TribCell &lt;trib_cell&gt; Headwaters &lt;main_stem&gt; R.M. = &lt;rmile0&gt;
+
+                &lt;no_cells&gt;: number of nodes in the reach (at least 2)
+
+                &lt;head_name&gt;: the headwater number. Since one headwater corresponds to one reach, headwater number is also the indicator of reach number.
+
+                &lt;trib_cell&gt;: the node number in the next higher order reach where the current reach enters into. If the current reach is the highest order reach, then &lt;trib_cell&gt; is equal to the node number of the outlet node.
+
+                &lt;main_stem&gt;: the headwater number (thus also the reach number) of the next higher order reach it enters. If the current reach is the highest order reach, then &lt;main_stem&gt; is equal to 0.
+
+                &lt;rmile0&gt;: length of the reach + length of one extra grid cell upstream of the headwater cell.
+
+    Line 2: &lt;alphaMu&gt; &lt;beta&gt; &lt;gamma&gt; &lt;mu&gt; &lt;smooth_param&gt;
+
+            Mohseni parameters for this reach (alphaMu is 'alpha - mu')
+
+    For each cell in the reach (number of loops = &lt;no_cells&gt;):
+
+            Line 1: Node &lt;node&gt; Row &lt;row&gt; Column &lt;col&gt; Lat &lt;lat&gt; Long &lt;lon&gt; R.M. = &lt;rmile1&gt; &lt;ndelta&gt;
+
+                    &lt;node&gt;: node number of this node in this reach (note that the same cell can have multiple nodes if it is a confluence cell)
+
+                    &lt;row&gt;: row number of the node
+
+                    &lt;col&gt;: column number of the node
+
+                    &lt;lat&gt;: lat of the node
+
+                    &lt;lon&gt;: lon of the node
+
+                    &lt;rmile1&gt;: river length (in miles) between this node and the most downstream node of this reach (so if the current node is the most downstream node, its &lt;rmile1&gt; would be 0)
+
+                    &lt;ndelta&gt;: number of segments of this cell in this reach (each cell reach is further diveded into &lt;ndelta&gt; number of segments for calculation); default: 2.
+</code></pre>
+<h4 id="flow-file-input">Flow file (input):<a class="headerlink" href="#flow-file-input" title="Permanent link">&para;</a></h4>
+<pre><code>For each time step (currently daily):
+
+    For each reach:
+
+        for each cell in this reach (except the most downstream node):
+
+            Line: &lt;nnd&gt; &lt;ncell&gt; &lt;Q_in&gt; &lt;Q_out&gt; &lt;Q_diff&gt; &lt;depth&gt; &lt;width&gt;
+
+                  &lt;nnd&gt;: index of time step (currently daily, i.e., 1, 2, ..., last day)
+
+                  &lt;ncell&gt;: node number (must be in order, and must skip the last node in each reach)
+
+                  &lt;Q_in&gt;: inflow discharge of the node [cfs]
+
+                  &lt;Q_out&gt;: outflow discharge of the node [cfs]
+
+                  &lt;Q_diff&gt;: lateral flow directly from land surface [cfs] (usually 0 if flow is already routed)
+
+                  depth&gt;: flow depth [ft]
+
+                  &lt;width&gt;: channel width [ft] (not used)
+
+                  &lt;u&gt;: flow velocity [ft/s]
+
+Note: Changing line is not necessary
+</code></pre>
+<h4 id="heat-file-input">Heat file (input):<a class="headerlink" href="#heat-file-input" title="Permanent link">&para;</a></h4>
+<pre><code>For each time step (currently daily):
+
+    For each reach:
+
+        for each cell in this reach (including the last cell also):
+
+            Line: &lt;ncell&gt; &lt;dbt&gt; &lt;ea&gt; &lt;Q_ns&gt; &lt;Q_na&gt; &lt;rho&gt; &lt;press&gt; &lt;wind&gt;
+
+                &lt;ncell&gt;: node number (must be in order)
+
+                &lt;dbt&gt;: air temperature [degC]
+
+                &lt;ea&gt;: air vapor pressure at surface [mb]
+
+                &lt;Q_ns&gt;: net incoming shortwave radiation [Kcal/sec/meter**2] (see modified routing model instruction for details in units)
+
+                &lt;Q_na&gt;: net incoming longwave radiation [Kcal/sec/meter**2] (see modified routing model instruction for details in units)
+
+                &lt;rho&gt;: air density [kg/m3] (not used)
+</code></pre>
+<h4 id="output-file-spat">Output file (*.Spat):<a class="headerlink" href="#output-file-spat" title="Permanent link">&para;</a></h4>
+<pre><code>For each divided stream segment:
+
+    Line: &lt;reach_ind&gt; &lt;cell_ind&gt; &lt;row&gt; &lt;col&gt; &lt;lat&gt; &lt;lon&gt; &lt;delta_ind&gt;
+
+        &lt;reach_ind&gt;: index of reach (i.e., which reach it is)
+
+        &lt;cell_ind&gt;: index of node (i.e., which node in this reach it is)
+
+        &lt;row&gt;: row number of the cell
+
+        &lt;col&gt;: column number of the cell
+
+        &lt;lat&gt;: lat of the cell
+
+        &lt;lon&gt;: lon of the cell
+
+        &lt;delta_ind&gt;: index of the divided segment point (i.e., which segment point in this cell and this reach it is).
+
+Note that the first segment point in the cell would be the upstream edge of the cell; the last segment
+point would be the last segment point upstream from the downstream edge of the cell (but not the
+downstream edge). For example, if using the default segment number = 2 for each cell, the first segment
+point would be the upstream edge of the cell; the second segment point would be the middle point of the cell.
+</code></pre>
+<h4 id="output-file-temp">Output file (*.Temp):<a class="headerlink" href="#output-file-temp" title="Permanent link">&para;</a></h4>
+<pre><code>For each node:
+
+    Line: &lt;time&gt; &lt;nd&gt; &lt;nr&gt; &lt;ncell&gt; &lt;ns&gt; &lt;T_0&gt; &lt;T_head&gt; &lt;dbt&gt;
+
+        &lt;time&gt;: decimal year
+
+        &lt;nd&gt;: day of year
+
+        &lt;nr&gt;: reach index
+
+        &lt;ncell&gt;: node index in this reach
+
+        &lt;ns&gt;: segment index in this reach (note that it is index in this reach, but not just in this cell)
+
+        &lt;T_0&gt;: stream temperature
+
+        &lt;T_head&gt;: headwater temperature (should be the same for a certain reach)
+
+        &lt;dbt&gt;: air temperature (should be the same for the nodes which are in the same cell)
+</code></pre>
+<h3 id="figures">Figures<a class="headerlink" href="#figures" title="Permanent link">&para;</a></h3>
+<p><img alt="Figure 1" src="../../figures/tutorial_f1.png" />
+<center>Figure1: Network Example
+<img alt="Figure 2" src="../../figures/tutorial_f2.png" />
+Figure2: Sample control file to run RBM for the Salmon River basin at a resolution 0.5° latitude/longitude. (Note:This example makes use of a gridded set of Mohseni parameters)
+<img alt="Figure 3" src="../../figures/tutorial_f3.png" />
+Figure3:  Input control file for running the routing model, rout. This will produce the flow and thermal energy forcings for RBM, as well as the unit hydrographs for additional simulations.</center></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "previous": 80, "search": 83, "next": 78};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

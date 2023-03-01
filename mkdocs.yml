@@ -3,7 +3,7 @@ site_description: River Basin Model - Stream Temperature
 site_author: J Yearsley
 repo_url: https://github.com/jyearsley/RBM_Mk/tree/master
 theme: mkdocs
-#site_url: https://jyearsleyrbm-mk.readthedocs.org
+site_url: https://jyearsleyrbm-mk.readthedocs.org
 docs_dir: docs
 site_dir: site
 use_directory_urls: true
