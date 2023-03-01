@@ -8,19 +8,19 @@
 ----------
 
 This is the public source code repository for the **River Basin Model**, **RBM**. RBM documentation can be read on the
-[RBM documentation website](http://rbm.readthedocs.org).
+[RBM documentation website](http://jyearsleyrbm-mk.readthedocs.org/en/latest/).
 
 RBM was first applied to the development of a water temperature Total Maximum Daily Load (TMDL) for the Columbia
 and Snake rivers [Yearsley et al. [2003]](http://www.hydro.washington.edu/Lettenmaier/Models/RBM/publications/Columbia_River_Heat.pdf)
  as a vector-based model. The grid-based version, integrated with the Variable Infiltration Capacity (VIC) macroscale hydrologic model, was developed at the University
 of Washington's Land Surface Hydrology Group as described in  [Yearsley [2009]](http://dx.doi.org/10.1029/2008WR007629).
 RBM has been applied to river basins at scales ranging from regional to global. A selection of RBM applications can be
-found on the [RBM references page](http://jyearsleyrbm-mk.readthedocs.org/en/latest/Documentation/References/).
+found on the [RBM references page](http://jyearsleyrbm-mk.readthedocs.org/en/latest/).
 
 
 By placing the original source code archive on GitHub, we hope to encourage a more collaborative development environment.
 A tutorial on how to use the RBM git repository and how to contribute your changes to the RBM model can be found on the
-[working with git page](http://jyearsleyrbm-mk.readthedocs.org/en/latest/Development/working-with-git/). The most stable version of
+[working with git page](http://jyearsleyrbm-mk.readthedocs.org/en/latest/). The most stable version of
 the model is in the `master` branch, while beta versions of releases under development can be obtained from the
 `develop` branch of this repository.
 
