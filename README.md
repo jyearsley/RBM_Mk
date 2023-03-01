@@ -2,7 +2,7 @@
 
 | RBM Links & Badges              |                                                                             |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| RBM Documentation      | [![Documentation Status](https://readthedocs.org/projects/rbm/badge/?version=latest)](http://rbm.readthedocs.org/en/latest/)                                                                             |
+| RBM Documentation      | [![Documentation Status](https://readthedocs.org/projects/jyearsleyrbm-mk/badge/?version=latest)](http://jyearsleyrbm-mk.readthedocs.org/en/latest/)                                                                             |
 | Travis Build           | [![Build Status](https://travis-ci.org/UW-Hydro/RBM.png)](https://travis-ci.org/UW-Hydro/RBM)   |
 
 ----------
@@ -15,12 +15,12 @@ and Snake rivers [Yearsley et al. [2003]](http://www.hydro.washington.edu/Letten
  as a vector-based model. The grid-based version, integrated with the Variable Infiltration Capacity (VIC) macroscale hydrologic model, was developed at the University
 of Washington's Land Surface Hydrology Group as described in  [Yearsley [2009]](http://dx.doi.org/10.1029/2008WR007629).
 RBM has been applied to river basins at scales ranging from regional to global. A selection of RBM applications can be
-found on the [RBM references page](http://rbm.readthedocs.org/en/latest/Documentation/References/).
+found on the [RBM references page](http://jyearsleyrbm-mk.readthedocs.org/en/latest/Documentation/References/).
 
 
 By placing the original source code archive on GitHub, we hope to encourage a more collaborative development environment.
 A tutorial on how to use the RBM git repository and how to contribute your changes to the RBM model can be found on the
-[working with git page](http://rbm.readthedocs.org/en/latest/Development/working-with-git/). The most stable version of
+[working with git page](http://jyearsleyrbm-mk.readthedocs.org/en/latest/Development/working-with-git/). The most stable version of
 the model is in the `master` branch, while beta versions of releases under development can be obtained from the
 `develop` branch of this repository.
 
