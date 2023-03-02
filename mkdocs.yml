@@ -23,8 +23,8 @@ nav:
 
 - Development:
     - 'Development': 'Development/ModelDevelopment.md'
-- Downloads:
-    - Code: 'SourceCode/Code.md'
+- SourceCode:
+    - 'RBM code': 'SourceCode/Code.md'
 
 markdown_extensions:
     - toc:
