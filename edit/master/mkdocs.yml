@@ -1,0 +1,33 @@
+site_name: RBM_Mk
+site_description: River Basin Model - Stream Temperature
+site_author: J Yearsley
+repo_url: https://github.com/jyearsley/RBM_Mk/tree/master
+theme: readthedocs
+site_url: https://jyearsleyrbm-mk.readthedocs.org
+docs_dir: docs
+site_dir: site
+use_directory_urls: true
+
+nav:
+# Main pages
+- Home: 'index.md'
+- About:
+    - 'Model Overview': 'Overview/ModelOverview.md'
+    - 'References': 'Overview/References.md'
+    - 'Contacts': 'Overview/contact.md'
+- Documentation:
+    - 'Tutorial':   'Documentation/tutorial.md'
+    - 'How to run RBM (Salmon River example)': 'Documentation/run_RBM.md'
+    - 'References': 'Documentation/References.md'
+    - 'Development': 'Documentation/ModelDevelopment.md'
+
+- Development:
+    - 'Development': 'Development/ModelDevelopment.md'
+- SourceCode:
+    - 'RBM code': 'SourceCode/Code.md'
+
+markdown_extensions:
+    - toc:
+        permalink: True
+    - admonition:
+    - fenced_code:
