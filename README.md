@@ -31,4 +31,4 @@ as to suitability, completeness, accuracy, and whatever other claim you would li
 has no graphical user interface, nor does it include a large set of analysis tools.
 
 If you make use of this model, please acknowledge [Yearsley [2012]](http://dx.doi.org/10.1029/2011WR011515) and references
-appropriate to the features you used that are cited in the [model overview](http://rbm.readthedocs.org/en/latest/Overview/ModelOverview/).
+appropriate to the features you used that are cited in the [model overview](http://jyearsleyrbm-mk.readthedocs.org/en/latest/Overview/ModelOverview/).
